@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.By;
@@ -26,10 +27,10 @@ public class SearchTest extends BaseTest {
 
         driver.get(BASE_URL + "/courses");
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        // Закрываем баннер
-        driver.findElement(By.xpath("//div/div/button[*]")).click();
+       // Закрываем баннер
+       driver.findElement(By.xpath("//div/div/button[*]")).click();
 
         //Поиск
         WebElement searchButton = driver.findElement(By.cssSelector("ul > li > .show-search-form"));
