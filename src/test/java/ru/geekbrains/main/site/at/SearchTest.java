@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +19,7 @@ public class SearchTest extends BaseTest {
 
     }
 
+    @Description("Тест проверяет блоки поиска на сайте https://geekbrains.ru")
     @Test
     public void searchJavaTest() {
 

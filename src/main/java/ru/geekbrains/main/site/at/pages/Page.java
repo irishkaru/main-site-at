@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
@@ -97,11 +98,13 @@ public class Page extends BasePage {
         }
     }
 
+    @Step("Проверка открытия страницы")
     public Page checkHeader(String expected) {
         assertEquals(expected, pageHeader.getText());
         return this;
     }
 
+    @Step("Проверка видимости блока")
     public Page checkVisibilityTab(String searchPageTab) {
         boolean visible = false;
 
@@ -117,6 +120,7 @@ public class Page extends BasePage {
         return this;
     }
 
+    @Step("Поиск текста")
     public Page searchText(String searchText) {
         searchBox.sendKeys(searchText);
 
@@ -125,24 +129,29 @@ public class Page extends BasePage {
         return this;
     }
 
+    @Step("Число в блоке больше")
     public Page checkGreaterThan(int number) {
         int searchPageTabCount = Integer.parseInt(searchPageTabValue.getText());
         assertThat(searchPageTabCount, greaterThan(number));
         return this;
     }
 
+
+    @Step("Число в блоке больше или равно")
     public Page checkGreaterThanOrEqual(int number) {
         int searchPageTabCount = Integer.parseInt(searchPageTabValue.getText());
         assertThat(searchPageTabCount, greaterThanOrEqualTo(number));
         return this;
     }
 
+    @Step("Число в блоке меньше")
     public Page checkLessThan(int number) {
         int searchPageTabCount = Integer.parseInt(searchPageTabValue.getText());
         assertThat(searchPageTabCount, lessThan(number));
         return this;
     }
 
+    @Step("Число в блоке в интервале чисел")
     public Page checkInterval(int lowerNumber, int largerNumber) {
         int searchPageTabCount = Integer.parseInt(searchPageTabValue.getText());
         assertThat(searchPageTabCount, allOf(
@@ -151,6 +160,7 @@ public class Page extends BasePage {
         return this;
     }
 
+    @Step("Число в блоке не")
     public Page checkNotNumber(int number) {
         int searchPageTabCount = Integer.parseInt(searchPageTabValue.getText());
         assertThat(searchPageTabCount, not(number));
