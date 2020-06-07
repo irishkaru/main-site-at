@@ -1,6 +1,7 @@
 package ru.geekbrains.main.site.at.pages;
 
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
+
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,11 +40,13 @@ public class NavigationTab extends BasePage {
         super(driver);
     }
 
+    @Step("Закрытие банера")
     public NavigationTab clickButtonPopUp() {
         buttonPopUp.click();
         return new NavigationTab(driver);
     }
 
+    @Step("Нажатие кнопки")
     public Page clickButton(String buttonTitle) {
 
         switch (buttonTitle) {
