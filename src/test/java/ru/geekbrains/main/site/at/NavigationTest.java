@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.parallel.Execution;
@@ -20,6 +21,7 @@ public class NavigationTest extends BaseTest {
         driver.get(BASE_URL + "/career");
     }
 
+    @Description("Тест проверяет навигацию по кнопкам бокового меню сайта https://geekbrains.ru")
     @ParameterizedTest
     @DisplayName("check navigation items")
     @MethodSource("pageGenerator")

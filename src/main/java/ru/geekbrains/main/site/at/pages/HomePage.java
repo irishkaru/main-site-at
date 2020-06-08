@@ -28,7 +28,6 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    @Step("Нажатие кнопки")
     public Sidebar clickButtonSidebar() {
         return new Sidebar(driver);
     }

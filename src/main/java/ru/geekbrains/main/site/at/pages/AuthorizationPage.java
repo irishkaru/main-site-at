@@ -1,12 +1,9 @@
 package ru.geekbrains.main.site.at.pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AuthorizationPage extends BasePage {
 
@@ -39,6 +36,7 @@ public class AuthorizationPage extends BasePage {
         return this;
     }
 
+    @Step("Нажатие кнопки 'Войти'")
     public HomePage clickLoginSubmitButton() {
         loginSubmitButton.click();
         return new HomePage(driver);

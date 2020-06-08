@@ -1,6 +1,7 @@
 package ru.geekbrains.main.site.at;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.geekbrains.main.site.at.base.BaseTest;
@@ -10,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CourseNavigationTest extends BaseTest {
 
-    //Переходим на страницу авторизации
+    @Step("Переходим на страницу авторизации")
     @BeforeEach
     public void openSite() {
         driver.get(BASE_URL + "/login");
@@ -21,7 +22,7 @@ public class CourseNavigationTest extends BaseTest {
 
     @Description("Тестирование страницы курсы на сайте https://geekbrains.ru")
     @Test
-    public void authorizationTest() {
+    public void сourseNavigationTest() {
 
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
 
@@ -34,7 +35,8 @@ public class CourseNavigationTest extends BaseTest {
         .clickСoursesPageTabCourses()
         .clickCheckboxFree()
         .clickCheckboxTester()
-        .checkVisibilityCourse("Тестирование ПО. Уровень 1");
+        .checkVisibilityCourse("Тестирование ПО. Уровень 1")
+        .checkVisibilityCourse("Тестирование ПО. Уровень 2");
     }
 
 

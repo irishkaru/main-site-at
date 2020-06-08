@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import ru.geekbrains.main.site.at.base.BaseTest;
 import ru.geekbrains.main.site.at.pages.AuthorizationPage;
-import ru.geekbrains.main.site.at.pages.NavigationTab;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,6 +32,5 @@ public class AuthorizationTest extends BaseTest {
                 .clickLoginSubmitButton()
                 .checkHeader();
     }
-
 
 }

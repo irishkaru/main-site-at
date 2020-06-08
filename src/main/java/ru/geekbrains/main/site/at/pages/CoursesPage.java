@@ -1,6 +1,5 @@
 package ru.geekbrains.main.site.at.pages;
 
-import com.sun.org.apache.xpath.internal.operations.Equals;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CoursesPage extends BasePage {
@@ -47,11 +45,12 @@ public class CoursesPage extends BasePage {
         return this;
     }
 
-    @Step("Проверка наличия курса")
+    @Step("Проверка наличия курса {expected}")
     public CoursesPage checkVisibilityCourse(String expected) {
         boolean visible = false;
 
         for (WebElement webElement : coursesSelection) {
+           // System.out.println(webElement.getText());
             if (webElement.getText().equals(expected)) {
                 visible = true;
                 break;
