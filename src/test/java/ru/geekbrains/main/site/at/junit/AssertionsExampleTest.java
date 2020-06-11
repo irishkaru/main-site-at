@@ -9,19 +9,19 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-
+@Disabled
 public class AssertionsExampleTest {
 
     @Test
     public void test01() {
-        assertEquals("1","2","This elements are not equal"); //любые обьекты
+        assertEquals("1", "2", "This elements are not equal"); //любые обьекты
     }
 
     @Test
     public void test02() {
         int[] a = {0, 1};
         int[] b = {0, 1};
-        assertArrayEquals(a,b);
+        assertArrayEquals(a, b);
     }
 
     @Test
@@ -36,16 +36,16 @@ public class AssertionsExampleTest {
     public void test04() {
         List<Integer> myList = Arrays.asList(0, 1, 2);
 
-        assertThrows(ArrayIndexOutOfBoundsException.class,() -> {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             myList.get(100);
         });
     }
 
     @Test
     public void test05() {
-       assertTimeout(Duration.ofMillis(700),() -> {
-           sleep(600);
-       });
+        assertTimeout(Duration.ofMillis(700), () -> {
+            sleep(600);
+        });
     }
 
 }

@@ -1,19 +1,23 @@
 package ru.geekbrains.main.site.at;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.concurrent.TimeUnit;
 
-@Disabled
-public class SearchTest extends BaseTest{
 
-    private static String selector(String dataTab){
+public class SearchTest extends BaseTest {
+
+    private static String selector(String dataTab) {
         String selector = "ul.search-page-tabs > li > a[data-tab='" + dataTab + "']";
 
         return selector;
@@ -23,10 +27,10 @@ public class SearchTest extends BaseTest{
 
         driver.get(BASE_URL + "/courses");
 
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        // Закрываем баннер
-        driver.findElement(By.xpath("//div/div/button[*]")).click();
+       // Закрываем баннер
+       driver.findElement(By.xpath("//div/div/button[*]")).click();
 
         //Поиск
         WebElement searchButton = driver.findElement(By.cssSelector("ul > li > .show-search-form"));
@@ -39,23 +43,22 @@ public class SearchTest extends BaseTest{
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("ul.search-page-tabs")));
     }
 
-        @Test
-        void searchJavaTestProfessions() {
-            searchJavaTest();
+    @Test
+    public void searchJavaTestProfessions() {
+        searchJavaTest();
 
-            // Профессии
-            String professionsSelector = selector("professions");
-            WebElement professionsTab = driver.findElement(By.cssSelector(professionsSelector));
-            // Проверка на видимость
-            Assertions.assertTrue(professionsTab.isDisplayed());
+        // Профессии
+        String professionsSelector = selector("professions");
+        WebElement professionsTab = driver.findElement(By.cssSelector(professionsSelector));
+        // Проверка на видимость
+        assertTrue(professionsTab.isDisplayed());
 
-            //не менее 2
-            String professionsValue = driver.findElement(By.cssSelector(professionsSelector + " > span")).getText();
-            int professionCount =Integer.parseInt(professionsValue);
-            Assertions.assertTrue(professionCount>=2);
+        //не менее 2
+        String professionsValue = driver.findElement(By.cssSelector(professionsSelector + " > span")).getText();
+        int professionCount = Integer.parseInt(professionsValue);
+        assertThat(professionCount, greaterThanOrEqualTo(2));
 
-        }
-
+    }
 
     @Test
     void searchJavaTestCourses() {
@@ -65,12 +68,12 @@ public class SearchTest extends BaseTest{
         //Курсы
         String coursesSelector = selector("courses");
         WebElement coursesTab = driver.findElement(By.cssSelector(coursesSelector));
-        Assertions.assertTrue(coursesTab.isDisplayed());
+        assertTrue(coursesTab.isDisplayed());
 
         //более 15
         String coursesValue = driver.findElement(By.cssSelector(coursesSelector + " > span")).getText();
-        int coursesCount =Integer.parseInt(coursesValue);
-        Assertions.assertTrue(coursesCount>15);
+        int coursesCount = Integer.parseInt(coursesValue);
+        assertThat(coursesCount, greaterThan(15));
 
     }
 
@@ -79,14 +82,16 @@ public class SearchTest extends BaseTest{
         searchJavaTest();
 
         //Вебинары
-        String webinarsSelector= selector("webinars");
+        String webinarsSelector = selector("webinars");
         WebElement webinarsTab = driver.findElement(By.cssSelector(webinarsSelector));
-        Assertions.assertTrue(webinarsTab.isDisplayed());
+        assertTrue(webinarsTab.isDisplayed());
 
         //больше 180, меньше 300
         String webinarsValue = driver.findElement(By.cssSelector(webinarsSelector + " > span")).getText();
-        int webinarsCount =Integer.parseInt(webinarsValue);
-        Assertions.assertTrue((webinarsCount>180)&&(webinarsCount<300) );
+        int webinarsCount = Integer.parseInt(webinarsValue);
+        assertThat(webinarsCount, allOf(
+                greaterThan(180),
+                lessThan(300)));
 
     }
 
@@ -95,14 +100,14 @@ public class SearchTest extends BaseTest{
         searchJavaTest();
 
         //Блоги
-        String blogsSelector= selector("blogs");
+        String blogsSelector = selector("blogs");
         WebElement blogsTab = driver.findElement(By.cssSelector(blogsSelector));
-        Assertions.assertTrue(blogsTab.isDisplayed());
+        assertTrue(blogsTab.isDisplayed());
 
         //более 300
         String blogsValue = driver.findElement(By.cssSelector(blogsSelector + " > span")).getText();
-        int blogsCount =Integer.parseInt(blogsValue);
-        Assertions.assertTrue(blogsCount>300);
+        int blogsCount = Integer.parseInt(blogsValue);
+        assertThat(blogsCount, greaterThan(300));
 
     }
 
@@ -112,14 +117,14 @@ public class SearchTest extends BaseTest{
         searchJavaTest();
 
         //Форумы
-        String forumsSelector= selector("forums");
+        String forumsSelector = selector("forums");
         WebElement Tab = driver.findElement(By.cssSelector(forumsSelector));
-        Assertions.assertTrue(Tab.isDisplayed());
+        assertTrue(Tab.isDisplayed());
 
         //не 350
         String forumsValue = driver.findElement(By.cssSelector(forumsSelector + " > span")).getText();
-        int forumsCount =Integer.parseInt(forumsValue);
-        Assertions.assertTrue(forumsCount!=350);
+        int forumsCount = Integer.parseInt(forumsValue);
+        assertThat(forumsCount, not(350));
 
     }
 
@@ -129,17 +134,17 @@ public class SearchTest extends BaseTest{
         searchJavaTest();
 
         //Тесты
-        String testsSelector= selector("tests");
+        String testsSelector = selector("tests");
         WebElement testsTab = driver.findElement(By.cssSelector(testsSelector));
-        Assertions.assertTrue(testsTab.isDisplayed());
+        assertTrue(testsTab.isDisplayed());
 
         //не 0
         String testsValue = driver.findElement(By.cssSelector(testsSelector + " > span")).getText();
-        int testsCount =Integer.parseInt(testsValue);
-        Assertions.assertTrue(testsCount!=0);
+        int testsCount = Integer.parseInt(testsValue);
+        assertThat(testsCount, not(0));
 
     }
 
-    }
+}
 
 
