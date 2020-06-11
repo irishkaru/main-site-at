@@ -33,6 +33,7 @@ public class NavigationTest extends BaseTest {
 
     public static Stream<String> pageGenerator() {
         return Stream.of("Карьера", "Курсы", "Вебинары", "Форум", "Блог", "Тесты");
+
     }
 
 }

@@ -20,7 +20,6 @@ public abstract class BaseTest {
         options.addArguments("--disable-popup-blocking");
 
         driver = new ChromeDriver(options);
-
     }
 
     @AfterEach
