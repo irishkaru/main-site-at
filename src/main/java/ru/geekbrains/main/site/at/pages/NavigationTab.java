@@ -1,5 +1,6 @@
 package ru.geekbrains.main.site.at.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class NavigationTab extends BasePage {
 
+    //кнопки бокового меню
     @FindBy(css = "nav > a[href='/career'")
     private WebElement careerNavButton;
 
@@ -25,10 +27,21 @@ public class NavigationTab extends BasePage {
     @FindBy(css = "nav > a[href='/tests'")
     private WebElement testsNavButton;
 
+    //кнопка поиска
+    @FindBy(css = "ul > li > .show-search-form")
+    private WebElement searchButton;
+
+    //банер
+     @FindBy(xpath = "//div/div/button[*]")
+      private WebElement buttonPopUp;
+
     public NavigationTab(WebDriver driver) {
-
         super(driver);
+    }
 
+    public NavigationTab clickButtonPopUp() {
+        buttonPopUp.click();
+        return new NavigationTab(driver);
     }
 
     public Page clickButton(String buttonTitle) {
@@ -58,6 +71,10 @@ public class NavigationTab extends BasePage {
                 testsNavButton.click();
                 break;
             }
+            case "Поиск": {
+                searchButton.click();
+                break;
+            }
             default: {
                 throw new NotFoundException("Element not found" + buttonTitle);
             }
@@ -65,5 +82,6 @@ public class NavigationTab extends BasePage {
         return new Page(driver);
 
     }
+
 
 }
