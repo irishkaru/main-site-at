@@ -1,12 +1,12 @@
 package ru.geekbrains.main.site.at;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.geekbrains.main.site.at.base.BaseTest;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -22,7 +22,7 @@ public class SearchTest extends BaseTest {
         return selector;
     }
 
-    void searchJavaTest() {
+    public void searchJavaTest() {
 
         driver.get(BASE_URL + "/courses");
 
@@ -60,7 +60,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    void searchJavaTestCourses() {
+   public void searchJavaTestCourses() {
 
         searchJavaTest();
 
@@ -77,7 +77,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    void searchJavaTestWebinars() {
+   public void searchJavaTestWebinars() {
         searchJavaTest();
 
         //Вебинары
@@ -91,11 +91,10 @@ public class SearchTest extends BaseTest {
         assertThat(webinarsCount, allOf(
                 greaterThan(180),
                 lessThan(300)));
-
     }
 
     @Test
-    void searchJavaTestBlogs() {
+   public void searchJavaTestBlogs() {
         searchJavaTest();
 
         //Блоги
@@ -111,7 +110,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    void searchJavaTestForums() {
+   public void searchJavaTestForums() {
 
         searchJavaTest();
 
@@ -128,7 +127,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    void searchJavaTestTests() {
+   public void searchJavaTestTests() {
 
         searchJavaTest();
 
@@ -141,8 +140,9 @@ public class SearchTest extends BaseTest {
         String testsValue = driver.findElement(By.cssSelector(testsSelector + " > span")).getText();
         int testsCount = Integer.parseInt(testsValue);
         assertThat(testsCount, not(0));
-
     }
+
+}
 
 }
 
