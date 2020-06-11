@@ -3,8 +3,11 @@ package ru.geekbrains.main.site.at.junit;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
+import org.junit.jupiter.api.Disabled;
+
 import org.junit.jupiter.api.*;
 
+@Disabled
 public class HamcrestExampleTest {
 
     @Test
