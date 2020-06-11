@@ -8,7 +8,6 @@ import java.util.*;
 public class MapStart {
     public static void main(String[] args) {
 
-        //Map<CarModel, List<String>>;
         Map<CarModel, Map<String, Integer>> carModelMapMap = new HashMap<>();
         Map<CarModel, String> carModelMap = new HashMap<>();
 
@@ -26,7 +25,6 @@ public class MapStart {
         Map<String, Integer> dnevnik = new HashMap<>();
         dnevnik.put("Sidorov", 5);
         dnevnik.put("Petrov", 2);
-       // dnevnik.put("Petrov", 5); //переписал строку предыдущую
         dnevnik.put("Ivanov", 4);
         dnevnik.put("Penkov", 4);
         dnevnik.put("Sharov", 5);

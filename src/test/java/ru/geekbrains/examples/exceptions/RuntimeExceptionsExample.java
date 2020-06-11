@@ -46,12 +46,6 @@ public class RuntimeExceptionsExample {
             System.out.println("Ошибка: Несуществующий символ строки");
         }
 
-
-
-
-
-
-
     }
     public static double arithmeticsExceptions(){
         return 5/0;

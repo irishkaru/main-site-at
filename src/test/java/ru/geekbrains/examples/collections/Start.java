@@ -12,7 +12,6 @@ public class Start {
 
         System.out.println(object1.equals(object3));
 
-        //
         Car car1 = new Car("vaz-2106");
         Car car2 = new Car("vaz-2106");
 
@@ -73,32 +72,6 @@ class CarModel {
         this.year = year;
     }
 
-//        @Override
-//        public boolean equals(Object o){
-//            if(o instanceof CarModel){
-//                if(((CarModel) o).model.equals(this.model)) {
-//                    return  true;
-//                }
-//            }
-//                return false;
-//        }
-
-    ////переопределяем логику равенства
-//        @Override
-//        public boolean equals(Object o) {
-//            if (this == o) {
-//                return true;
-//            }
-//
-//            if (o == null || getClass() != o.getClass()) {
-//                return false;
-//            }
-//
-//            CarModel carModel = (CarModel) o;
-//
-//            return model != null ? model.equals(carModel.model) : carModel.model == null;
-//        }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -122,14 +95,5 @@ class CarModel {
                 '}';
     }
 
-//        @Override
-//        public int hashCode() {
-//            return Objects.hash(model);
-//        }
-
-    //        @Override
-//        public int hashCode(){
-//            return model != null ?model.hashCode() :0;
-//        }
 }
 

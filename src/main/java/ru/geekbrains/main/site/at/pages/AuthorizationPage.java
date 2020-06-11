@@ -24,8 +24,6 @@ public class AuthorizationPage extends BasePage {
     public AuthorizationPage inputEmail(String userEmailText) {
         userEmailBox.sendKeys(userEmailText);
 
-//        WebDriverWait wait = new WebDriverWait(driver, 30);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("ul.search-page-tabs")));
         return this;
     }
 

@@ -20,7 +20,7 @@ public class SetStart {
         carModelSet.add(new CarModel("vaz"));
         carModelSet.add(new CarModel("vaz"));
 
-       // carModelSet.retainAll(carModelSet1); //пересечение
+        //carModelSet.retainAll(carModelSet1); //пересечение
 
         for (CarModel carModel:carModelSet){
             System.out.println(carModel);
